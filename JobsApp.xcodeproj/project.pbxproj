@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */; };
-		E5B6B29E2B5E86A700939699 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B29D2B5E86A700939699 /* ContentView.swift */; };
 		E5B6B2A02B5E86A800939699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B29F2B5E86A800939699 /* Assets.xcassets */; };
 		E5B6B2A32B5E86A800939699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */; };
+		E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2AC2B5E890800939699 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5B6B2982B5E86A700939699 /* JobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsAppApp.swift; sourceTree = "<group>"; };
-		E5B6B29D2B5E86A700939699 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E5B6B29F2B5E86A800939699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E5B6B2AC2B5E890800939699 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +51,10 @@
 		E5B6B29A2B5E86A700939699 /* JobsApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5B6B2AB2B5E87F900939699 /* ViewModel */,
+				E5B6B2AA2B5E87ED00939699 /* View */,
+				E5B6B2A92B5E87E500939699 /* Model */,
 				E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */,
-				E5B6B29D2B5E86A700939699 /* ContentView.swift */,
 				E5B6B29F2B5E86A800939699 /* Assets.xcassets */,
 				E5B6B2A12B5E86A800939699 /* Preview Content */,
 			);
@@ -65,6 +67,28 @@
 				E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E5B6B2A92B5E87E500939699 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E5B6B2AA2B5E87ED00939699 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B2AC2B5E890800939699 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E5B6B2AB2B5E87F900939699 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B6B29E2B5E86A700939699 /* ContentView.swift in Sources */,
+				E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */,
 				E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
