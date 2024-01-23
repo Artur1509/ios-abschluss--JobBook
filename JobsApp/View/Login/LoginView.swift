@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     var body: some View {
         
+        // Oberes DesignElement
         Circle()
             .fill(Color("Primary"))
             .frame(width: 800, height: 600)
@@ -17,6 +18,8 @@ struct LoginView: View {
             .padding(.leading, -440)
         
         VStack {
+            
+            // App Logo
             Image("logo_1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -25,6 +28,7 @@ struct LoginView: View {
             
             Spacer()
             
+            // Sign in Button
             Button(action: greeting ) {
                 
                 Text("Anmelden")
@@ -39,6 +43,7 @@ struct LoginView: View {
             }
             .padding(.bottom, 8)
             
+            // Sign up Button
             Button(action: greeting ) {
                 
                 Text("Registrieren")
@@ -58,6 +63,7 @@ struct LoginView: View {
         }
         Spacer()
         
+        // Unteres Designelement
         Circle()
             .fill(Color("Secondary"))
             .frame(width: 800, height: 600)
@@ -68,8 +74,9 @@ struct LoginView: View {
     }
 }
 
+// Testfunktion für Buttons
 func greeting() {
-    print("Test")
+    print("Hello")
 }
 
 #Preview {
