@@ -11,6 +11,8 @@
 		E5B6B2A02B5E86A800939699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B29F2B5E86A800939699 /* Assets.xcassets */; };
 		E5B6B2A32B5E86A800939699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */; };
 		E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2AC2B5E890800939699 /* LoginView.swift */; };
+		E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2AF2B5EB64800939699 /* SignInView.swift */; };
+		E5B6B2B22B5EB68700939699 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2B12B5EB68700939699 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		E5B6B29F2B5E86A800939699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E5B6B2AC2B5E890800939699 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E5B6B2AF2B5EB64800939699 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E5B6B2B12B5EB68700939699 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,7 @@
 		E5B6B2AA2B5E87ED00939699 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E5B6B2AC2B5E890800939699 /* LoginView.swift */,
+				E5B6B2AE2B5EB61900939699 /* Login */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -89,6 +93,16 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E5B6B2AE2B5EB61900939699 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E5B6B2AC2B5E890800939699 /* LoginView.swift */,
+				E5B6B2AF2B5EB64800939699 /* SignInView.swift */,
+				E5B6B2B12B5EB68700939699 /* SignUpView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B6B2B22B5EB68700939699 /* SignUpView.swift in Sources */,
+				E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */,
 				E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */,
 				E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */,
 			);
