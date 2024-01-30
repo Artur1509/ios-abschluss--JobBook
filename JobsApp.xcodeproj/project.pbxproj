@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E50C2F652B68F25600A428B9 /* pflichtenheft ios.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E50C2F642B68F25600A428B9 /* pflichtenheft ios.pdf */; };
 		E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */; };
 		E5B6B2A02B5E86A800939699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B29F2B5E86A800939699 /* Assets.xcassets */; };
 		E5B6B2A32B5E86A800939699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E50C2F642B68F25600A428B9 /* pflichtenheft ios.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "pflichtenheft ios.pdf"; sourceTree = "<group>"; };
 		E5B6B2982B5E86A700939699 /* JobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsAppApp.swift; sourceTree = "<group>"; };
 		E5B6B29F2B5E86A800939699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		E5B6B2A12B5E86A800939699 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				E50C2F642B68F25600A428B9 /* pflichtenheft ios.pdf */,
 				E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50C2F652B68F25600A428B9 /* pflichtenheft ios.pdf in Resources */,
 				E5B6B2A32B5E86A800939699 /* Preview Assets.xcassets in Resources */,
 				E5B6B2A02B5E86A800939699 /* Assets.xcassets in Resources */,
 				E5EB51D52B61372B001C615B /* GoogleService-Info.plist in Resources */,

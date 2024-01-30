@@ -14,7 +14,7 @@ struct SignUpView: View {
     @State private var repeatPassword = ""
     @State private var isSignUpActive = false
     
-    @StateObject private var firebaseViewModel = FirebaseViewModel()
+    @EnvironmentObject private var firebaseViewModel: FirebaseViewModel
     
     var body: some View {
         VStack {

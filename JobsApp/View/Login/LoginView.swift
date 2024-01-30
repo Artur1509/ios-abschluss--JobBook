@@ -92,9 +92,10 @@ struct LoginView: View {
         
     }
     
+    @EnvironmentObject private var firebaseViewModel: FirebaseViewModel
 }
 
-// Testfunktion für Buttons
+
 
 
 #Preview {

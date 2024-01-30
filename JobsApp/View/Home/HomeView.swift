@@ -9,7 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject private var firebaseViewModel = FirebaseViewModel()
     
     var body: some View {
         
@@ -20,6 +19,8 @@ struct HomeView: View {
         }
         
     }
+    
+    @EnvironmentObject private var firebaseViewModel: FirebaseViewModel
 
 }
 

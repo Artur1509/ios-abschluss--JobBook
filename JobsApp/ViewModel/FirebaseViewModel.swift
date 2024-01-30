@@ -63,8 +63,7 @@ class FirebaseViewModel: ObservableObject{
             guard let authResult, let email = authResult.user.email else { return }
             print("User with email '\(email)' is registered with id '\(authResult.user.uid)'")
             
-            // Nach der Registrierung möchten wir unseren User auch direkt anmelden.
-            // Dazu können wir einfach die login()-Funktion aufrufen und E-Mail und Passwort weitergeben
+            // User wird nach der Registrierung automatisch angemeldet.
             self.signIn(email: email, password: password)
         }
     }
@@ -80,6 +79,10 @@ class FirebaseViewModel: ObservableObject{
         }
     }
     
+}
+
+extension FirebaseViewModel {
+    static let shared = FirebaseViewModel()
 }
 
 

@@ -13,7 +13,7 @@ struct SignInView: View {
     @State private var password = ""
     @State private var isSignUpActive = false
     
-    @StateObject private var firebaseViewModel = FirebaseViewModel()
+    @EnvironmentObject private var firebaseViewModel : FirebaseViewModel
     
     var body: some View {
         

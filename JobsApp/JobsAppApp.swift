@@ -11,13 +11,13 @@ import Firebase
 @main
 struct JobsAppApp: App {
     
-    @StateObject private var firebaseViewModel = FirebaseViewModel()
     
     init() {
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
     }
     var body: some Scene {
+        
         WindowGroup {
             if firebaseViewModel.userIsLoggedIn {
                 HomeView()
@@ -29,4 +29,6 @@ struct JobsAppApp: App {
             }
         }
     }
+    
+    @StateObject private var firebaseViewModel: FirebaseViewModel = .shared
 }
