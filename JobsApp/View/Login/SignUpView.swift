@@ -14,6 +14,8 @@ struct SignUpView: View {
     @State private var repeatPassword = ""
     @State private var isSignUpActive = false
     
+    @StateObject private var firebaseViewModel = FirebaseViewModel()
+    
     var body: some View {
         VStack {
             // Logo
@@ -52,7 +54,7 @@ struct SignUpView: View {
                 .padding(.horizontal)
             
             // Sign up Button
-            Button(action: {isSignUpActive = true} ) {
+            Button(action: {checkPasswordAndSignUp(password1: password, password2: repeatPassword) } ) {
                 
                 Text("Registrieren")
                     .frame(width: 280, height: 56)
@@ -71,6 +73,16 @@ struct SignUpView: View {
                 }
             
             Spacer()
+        }
+    }
+    
+    private func checkPasswordAndSignUp(password1: String, password2: String) {
+        
+        if password1 == password2 {
+            firebaseViewModel.signUp(email: emailAddress, password: password)
+        }
+        else {
+            print("Error, Passwort falsch.")
         }
     }
 }

@@ -11,8 +11,9 @@ struct SignInView: View {
     
     @State private var emailAddress = ""
     @State private var password = ""
-    @State private var isLoggedIn = false
     @State private var isSignUpActive = false
+    
+    @StateObject private var firebaseViewModel = FirebaseViewModel()
     
     var body: some View {
         
@@ -49,7 +50,7 @@ struct SignInView: View {
                 .padding(.horizontal)
             
             // Anmelden Button
-            Button(action: {isLoggedIn = true} ) {
+            Button(action: {firebaseViewModel.signIn(email: emailAddress, password: password)} ) {
                 Text("Anmelden")
                     .frame(width: 280, height: 56)
                     .foregroundColor(Color.white)
@@ -69,7 +70,7 @@ struct SignInView: View {
             // Zum Registrierungsvorgang Button
             Button(action: {isSignUpActive = true} ) {
                 
-                Text("Jetzt neues Benutzerkonto anlegen.")
+                Text("Neues Benutzerkonto erstellen →")
                     .foregroundColor(Color("Primary"))
             }
             .navigationDestination(

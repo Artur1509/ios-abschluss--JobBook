@@ -6,12 +6,27 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct JobsAppApp: App {
+    
+    @StateObject private var firebaseViewModel = FirebaseViewModel()
+    
+    init() {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            if firebaseViewModel.userIsLoggedIn {
+                HomeView()
+                    .environmentObject(firebaseViewModel)
+            }
+            else {
+                LoginView()
+                    .environmentObject(firebaseViewModel)
+            }
         }
     }
 }
