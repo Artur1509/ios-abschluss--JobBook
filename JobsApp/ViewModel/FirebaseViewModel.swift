@@ -19,6 +19,7 @@ class FirebaseViewModel: ObservableObject{
     
     @Published var user: User?
     
+    // Ist Nutzer eingeloggt?
     var userIsLoggedIn: Bool {
         user != nil
     }
@@ -67,6 +68,8 @@ class FirebaseViewModel: ObservableObject{
             self.signIn(email: email, password: password)
         }
     }
+    
+    // Ausloggen
     
     func logout() {
         do {

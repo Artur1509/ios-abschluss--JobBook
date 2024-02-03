@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+@MainActor
+class JobsViewModel: ObservableObject {
+    
+    // MARK: - Variables
+    @Published var stellenangebote = [Job]()
+    
+    // MARK: - Functions
+    
+    func fetchData() {
+        Task {
+            do {
+                self.stellenangebote = try await JobsApiRepository.fetchJobs()
+            } catch {
+                print("Request failed with error: \(error)")
+            }
+        }
+    }
+}

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E50C2F652B68F25600A428B9 /* pflichtenheft ios.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E50C2F642B68F25600A428B9 /* pflichtenheft ios.pdf */; };
+		E50C2F6A2B6A57EC00A428B9 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50C2F692B6A57EC00A428B9 /* Job.swift */; };
+		E50C2F6C2B6A5FDD00A428B9 /* JobsApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50C2F6B2B6A5FDD00A428B9 /* JobsApiRepository.swift */; };
+		E50C2F6F2B6A629400A428B9 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50C2F6E2B6A629400A428B9 /* HTTPError.swift */; };
+		E50C2F712B6A643B00A428B9 /* JobsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50C2F702B6A643B00A428B9 /* JobsViewModel.swift */; };
+		E50C2F782B6BC33400A428B9 /* JobListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50C2F772B6BC33400A428B9 /* JobListItemView.swift */; };
 		E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */; };
 		E5B6B2A02B5E86A800939699 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B29F2B5E86A800939699 /* Assets.xcassets */; };
 		E5B6B2A32B5E86A800939699 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B6B2A22B5E86A800939699 /* Preview Assets.xcassets */; };
@@ -48,6 +53,11 @@
 
 /* Begin PBXFileReference section */
 		E50C2F642B68F25600A428B9 /* pflichtenheft ios.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "pflichtenheft ios.pdf"; sourceTree = "<group>"; };
+		E50C2F692B6A57EC00A428B9 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		E50C2F6B2B6A5FDD00A428B9 /* JobsApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsApiRepository.swift; sourceTree = "<group>"; };
+		E50C2F6E2B6A629400A428B9 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
+		E50C2F702B6A643B00A428B9 /* JobsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsViewModel.swift; sourceTree = "<group>"; };
+		E50C2F772B6BC33400A428B9 /* JobListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListItemView.swift; sourceTree = "<group>"; };
 		E5B6B2982B5E86A700939699 /* JobsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B6B29B2B5E86A700939699 /* JobsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsAppApp.swift; sourceTree = "<group>"; };
 		E5B6B29F2B5E86A800939699 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +108,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E50C2F682B6A56D500A428B9 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				E50C2F6B2B6A5FDD00A428B9 /* JobsApiRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		E50C2F6D2B6A625200A428B9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E50C2F6E2B6A629400A428B9 /* HTTPError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E50C2F722B6BAAB600A428B9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E50C2F692B6A57EC00A428B9 /* Job.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		E5B6B28F2B5E86A700939699 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +151,8 @@
 		E5B6B29A2B5E86A700939699 /* JobsApp */ = {
 			isa = PBXGroup;
 			children = (
+				E50C2F6D2B6A625200A428B9 /* Enums */,
+				E50C2F682B6A56D500A428B9 /* Repositories */,
 				E5B6B2AB2B5E87F900939699 /* ViewModel */,
 				E5B6B2AA2B5E87ED00939699 /* View */,
 				E5B6B2A92B5E87E500939699 /* Model */,
@@ -140,6 +176,8 @@
 		E5B6B2A92B5E87E500939699 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E50C2F722B6BAAB600A428B9 /* Data */,
+				E50C2F772B6BC33400A428B9 /* JobListItemView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,7 +185,7 @@
 		E5B6B2AA2B5E87ED00939699 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E5EB520D2B614BE6001C615B /* Home */,
+				E5EB520D2B614BE6001C615B /* Main */,
 				E5B6B2AE2B5EB61900939699 /* Login */,
 			);
 			path = View;
@@ -157,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				E5EB51CF2B61341C001C615B /* FirebaseViewModel.swift */,
+				E50C2F702B6A643B00A428B9 /* JobsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,12 +210,12 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		E5EB520D2B614BE6001C615B /* Home */ = {
+		E5EB520D2B614BE6001C615B /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				E5EB520E2B614C19001C615B /* HomeView.swift */,
 			);
-			path = Home;
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,11 +322,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E50C2F712B6A643B00A428B9 /* JobsViewModel.swift in Sources */,
 				E5B6B2B22B5EB68700939699 /* SignUpView.swift in Sources */,
+				E50C2F6F2B6A629400A428B9 /* HTTPError.swift in Sources */,
+				E50C2F782B6BC33400A428B9 /* JobListItemView.swift in Sources */,
 				E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */,
+				E50C2F6C2B6A5FDD00A428B9 /* JobsApiRepository.swift in Sources */,
 				E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */,
 				E5EB520F2B614C19001C615B /* HomeView.swift in Sources */,
 				E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */,
+				E50C2F6A2B6A57EC00A428B9 /* Job.swift in Sources */,
 				E5EB51D02B61341C001C615B /* FirebaseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

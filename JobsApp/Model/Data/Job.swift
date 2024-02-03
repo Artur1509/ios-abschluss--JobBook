@@ -29,7 +29,7 @@ struct Job: Codable {
     var beruf: String?
     var titel: String?
     var refnr: String?
-    var arbeitsort: Location?
+    var arbeitsort: Location
     var arbeitgeber: String?
     var aktuelleVeroeffentlichungsdatum: String?
     var modifikationsTimestamp: String?

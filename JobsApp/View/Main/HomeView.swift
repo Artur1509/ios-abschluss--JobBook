@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    
+    @StateObject private var jobsViewModel = JobsViewModel()
+
     var body: some View {
-        
-        Button(action: {firebaseViewModel.logout()} ) {
-            
-            Text("Ausloggen →")
-                .foregroundColor(Color("Primary"))
+        NavigationView {
+            List {
+                ForEach(jobsViewModel.stellenangebote, id: \.refnr) { job in
+                    JobListItemView(job: job)
+                }
+            }
+            .navigationTitle("Stellenanzeigen")
+            .onAppear {
+                jobsViewModel.fetchData()
+            }
         }
-        
     }
     
-    @EnvironmentObject private var firebaseViewModel: FirebaseViewModel
-
+    
 }
 
-#Preview {
-    HomeView()
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+            .environmentObject(JobsViewModel())
+    }
 }
+
+
