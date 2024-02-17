@@ -9,18 +9,42 @@ import Foundation
 
 @MainActor
 class JobsViewModel: ObservableObject {
-    
-    // MARK: - Variables
     @Published var stellenangebote = [Job]()
-    
-    // MARK: - Functions
-    
+    @Published var query = JobSearchQuery()
+
     func fetchData() {
         Task {
             do {
-                self.stellenangebote = try await JobsApiRepository.fetchJobs()
+                if let queryName = query.name {
+                    self.stellenangebote = try await JobsApiRepository.fetchJobs(withQuery: queryName)
+                } else {
+                    self.stellenangebote = try await JobsApiRepository.fetchJobs()
+                }
             } catch {
                 print("Request failed with error: \(error)")
+            }
+        }
+    }
+
+    func searchJobs() {
+        Task {
+            do {
+                if let queryName = query.name {
+                    self.stellenangebote = try await JobsApiRepository.fetchJobs(withQuery: queryName)
+                }
+            } catch {
+                print("Suchanfrage fehlgeschlagen: \(error)")
+            }
+        }
+    }
+    
+    func fetchJobDetails(encodedHashId: String, completion: @escaping (Result<JobDetails, Error>) -> Void) {
+        JobsApiRepository.fetchJobDetails(encodedHashId: encodedHashId) { result in
+            switch result {
+            case .success(let jobDetails):
+                completion(.success(jobDetails))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

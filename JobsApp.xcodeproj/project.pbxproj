@@ -19,6 +19,11 @@
 		E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2AC2B5E890800939699 /* LoginView.swift */; };
 		E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2AF2B5EB64800939699 /* SignInView.swift */; };
 		E5B6B2B22B5EB68700939699 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B6B2B12B5EB68700939699 /* SignUpView.swift */; };
+		E5CA3F5D2B7CDD78003A7C0C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA3F5C2B7CDD78003A7C0C /* FavoriteButton.swift */; };
+		E5CA3F612B7E591B003A7C0C /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA3F602B7E591B003A7C0C /* JobDetailView.swift */; };
+		E5CA3F632B7F90AE003A7C0C /* JobDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5CA3F622B7F90AE003A7C0C /* JobDetails.swift */; };
+		E5E625B82B6F6ECA0083701D /* JobSearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E625B72B6F6ECA0083701D /* JobSearchQuery.swift */; };
+		E5E625BC2B6F73290083701D /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E625BB2B6F73290083701D /* SearchBar.swift */; };
 		E5EB51D02B61341C001C615B /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB51CF2B61341C001C615B /* FirebaseViewModel.swift */; };
 		E5EB51D52B61372B001C615B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5EB51D42B61372B001C615B /* GoogleService-Info.plist */; };
 		E5EB51D82B613863001C615B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB51D72B613863001C615B /* FirebaseAnalytics */; };
@@ -65,6 +70,11 @@
 		E5B6B2AC2B5E890800939699 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E5B6B2AF2B5EB64800939699 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E5B6B2B12B5EB68700939699 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E5CA3F5C2B7CDD78003A7C0C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		E5CA3F602B7E591B003A7C0C /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
+		E5CA3F622B7F90AE003A7C0C /* JobDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetails.swift; sourceTree = "<group>"; };
+		E5E625B72B6F6ECA0083701D /* JobSearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobSearchQuery.swift; sourceTree = "<group>"; };
+		E5E625BB2B6F73290083701D /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E5EB51CF2B61341C001C615B /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
 		E5EB51D42B61372B001C615B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5EB520E2B614C19001C615B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -128,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				E50C2F692B6A57EC00A428B9 /* Job.swift */,
+				E5E625B72B6F6ECA0083701D /* JobSearchQuery.swift */,
+				E5CA3F622B7F90AE003A7C0C /* JobDetails.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -178,6 +190,8 @@
 			children = (
 				E50C2F722B6BAAB600A428B9 /* Data */,
 				E50C2F772B6BC33400A428B9 /* JobListItemView.swift */,
+				E5E625BB2B6F73290083701D /* SearchBar.swift */,
+				E5CA3F5C2B7CDD78003A7C0C /* FavoriteButton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				E5EB520E2B614C19001C615B /* HomeView.swift */,
+				E5CA3F602B7E591B003A7C0C /* JobDetailView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -322,15 +337,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5E625BC2B6F73290083701D /* SearchBar.swift in Sources */,
 				E50C2F712B6A643B00A428B9 /* JobsViewModel.swift in Sources */,
 				E5B6B2B22B5EB68700939699 /* SignUpView.swift in Sources */,
+				E5E625B82B6F6ECA0083701D /* JobSearchQuery.swift in Sources */,
 				E50C2F6F2B6A629400A428B9 /* HTTPError.swift in Sources */,
 				E50C2F782B6BC33400A428B9 /* JobListItemView.swift in Sources */,
 				E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */,
+				E5CA3F612B7E591B003A7C0C /* JobDetailView.swift in Sources */,
 				E50C2F6C2B6A5FDD00A428B9 /* JobsApiRepository.swift in Sources */,
 				E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */,
 				E5EB520F2B614C19001C615B /* HomeView.swift in Sources */,
 				E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */,
+				E5CA3F632B7F90AE003A7C0C /* JobDetails.swift in Sources */,
+				E5CA3F5D2B7CDD78003A7C0C /* FavoriteButton.swift in Sources */,
 				E50C2F6A2B6A57EC00A428B9 /* Job.swift in Sources */,
 				E5EB51D02B61341C001C615B /* FirebaseViewModel.swift in Sources */,
 			);

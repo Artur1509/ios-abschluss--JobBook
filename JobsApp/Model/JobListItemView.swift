@@ -13,23 +13,27 @@ struct JobListItemView: View {
     
     var body: some View {
         VStack {
-            
-            Text(job.aktuelleVeroeffentlichungsdatum?.formatDate() ?? "")
+            FavoriteButton()
                 .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(4)
-                .padding(.horizontal, 4)
+                .padding(.top, 4)
             
-            Text(job.beruf!)
+            Text(job.beruf ?? "")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(4)
                 .padding(.horizontal, 4)
             
-            Text(job.titel!)
+            Text(job.titel ?? "")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 4)
                 .padding(4)
+            
+            Text(job.arbeitgeber ?? "")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .fontWeight(.bold)
+                .padding(4)
+                .padding(.horizontal, 4)
                 .padding(.bottom, 8)
             
             HStack {
@@ -38,7 +42,7 @@ struct JobListItemView: View {
                     .foregroundColor(Color("Primary"))
                     .frame(alignment: .leading)
                     .padding(.horizontal, 8)
-                    
+                    .padding(.trailing, -8)
                 
                 Text("\(job.arbeitsort.plz ?? "") \(job.arbeitsort.ort ?? "Keine Angabe")")
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -50,7 +54,7 @@ struct JobListItemView: View {
                     .foregroundColor(Color("Primary"))
                     .frame(alignment: .leading)
                     .padding(.horizontal, 8)
-                    
+                    .padding(.trailing, -8)
                 
                 Text(job.eintrittsdatum?.formatDate2() ?? "Unbekannt")
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -58,10 +62,30 @@ struct JobListItemView: View {
             }
             .padding(.bottom, 8)
             
+            HStack {
+                Text(job.aktuelleVeroeffentlichungsdatum?.formatDate() ?? "")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(4)
+                    .padding(.trailing, -8)
+                
+                Image(systemName: "clock")
+                    .foregroundColor(Color("Secondary"))
+                    .frame( alignment: .trailing)
+                    .padding(.horizontal, 4)
+            }
+            
         }
     }
-    
-    
+}
+
+func encodeToBase64(inputString: String) -> String? {
+    if let inputData = inputString.data(using: .utf8) {
+        let base64String = inputData.base64EncodedString()
+        return base64String
+    } else {
+        print("Die Eingabe konnte nicht in Daten umgewandelt werden.")
+        return nil
+    }
 }
 
 #Preview {
@@ -94,6 +118,7 @@ extension String {
         if calendar.isDateInToday(date) {
             return "Heute"
         } else {
+            dateFormatter.locale = Locale(identifier: "de_DE")
             dateFormatter.dateFormat = "dd. MMMM yyyy"
             return dateFormatter.string(from: date)
         }
@@ -126,6 +151,7 @@ extension String {
         }
         
         // Wenn es weder heute noch in der Vergangenheit liegt, gib das formatierte Datum zurück
+        dateFormatter.locale = Locale(identifier: "de_DE")
         dateFormatter.dateFormat = "dd. MMMM yyyy"
         return dateFormatter.string(from: date)
     }

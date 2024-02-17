@@ -10,4 +10,5 @@ import Foundation
 enum HTTPError: Error {
     case invalidURL
     case missingData
+    case unknown
 }

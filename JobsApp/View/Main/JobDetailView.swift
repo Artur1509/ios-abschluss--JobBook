@@ -8,11 +8,89 @@
 import SwiftUI
 
 struct JobDetailView: View {
+    
+    @StateObject private var jobsViewModel = JobsViewModel()
+    @State private var jobDetails: JobDetails?
+    let encodedHashId: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ZStack {
+                VStack {
+                    
+                    FavoriteButton()
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                    
+                    if let details = jobDetails { // Nur anzeigen, wenn die Jobdetails verfügbar sind
+                        Text(details.arbeitgeber ?? "")
+                            .font(.title)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Text(details.titel ?? "")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Spacer()
+                        
+                        Button(action: {print("Test")}) {
+                            Text("Bewerben")
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(Color("Primary"))
+                        }
+                        .foregroundStyle(Color("Primary"))
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .font(.headline)
+                        
+                    } else {
+                        ProgressView() // Ladeanzeige anzeigen, während die Jobdetails geladen werden
+                    }
+                }
+                .padding()
+            }
+            .frame(maxWidth: .infinity)
+            .frame(height: 200)
+            .background(Color(.white))
+            .shadow(color: Color(.gray), radius: 10)
+            .onAppear {
+                // Jobdetails laden, wenn die Ansicht geladen wird
+                jobsViewModel.fetchJobDetails(encodedHashId: encodedHashId) { result in
+                    switch result {
+                    case .success(let details):
+                        self.jobDetails = details
+                    case .failure(let error):
+                        print("Fehler beim Laden der Jobdetails: \(error)")
+                        // Fehlerbehandlung hier nach Bedarf
+                    }
+                }
+            }
+            
+            Spacer()
+            
+            ScrollView {
+                VStack {
+                    Text("Stellenbeschreibung")
+                        .font(.largeTitle)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    if let details = jobDetails { // Nur anzeigen, wenn die Jobdetails verfügbar sind
+                        Text(details.stellenbeschreibung ?? "")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top)
+                        
+                    } else {
+                        ProgressView() // Ladeanzeige anzeigen, während die Jobdetails geladen werden
+                    }
+                    
+                    
+                }
+                .padding()
+                
+                Spacer()
+            }
+        }
     }
 }
 
 #Preview {
-    JobDetailView()
+    JobDetailView(encodedHashId: "MTgwNzQtVFE5U0wwTzU5RERRWjgyTy1T")
 }
+

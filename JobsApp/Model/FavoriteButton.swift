@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct FavoriteButton: View {
+    @State private var isFavorited = false // Zustand des Favoriten
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            isFavorited.toggle() // Umschalten des Favoritenstatus beim Klicken
+        }) {
+            Image(systemName: isFavorited ? "heart.fill" : "heart") // Verwende das gefüllte Herzsymbol, wenn favorisiert, sonst das leere Herzsymbol
+                .foregroundColor(isFavorited ? Color("Primary") : Color("Secondary")) // Ändere die Farbe basierend auf dem Zustand
+                .font(.title2)// Passe die Schriftgröße an
+        }
     }
 }
 

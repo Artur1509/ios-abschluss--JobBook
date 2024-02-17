@@ -8,23 +8,53 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     @StateObject private var jobsViewModel = JobsViewModel()
-
+    @State private var searchText: String = ""
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(jobsViewModel.stellenangebote, id: \.refnr) { job in
-                    JobListItemView(job: job)
+            ZStack {
+                // Hintergrundfarbe festlegen
+                Color.white.edgesIgnoringSafeArea(.all)
+                
+                VStack(spacing: 0) {
+                    VStack {
+                        Text("Jobsuche")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        SearchBar(text: $searchText, placeholder: "Beruf suchen", onCommit: {
+                            jobsViewModel.query.name = searchText
+                            jobsViewModel.searchJobs()
+                        })
+                        
+                        Spacer()
+                        
+                    }
+                    .frame(height: 160)
+                    .padding(.horizontal)
+                    .background(Color(.white))
+                    
+                    List(jobsViewModel.stellenangebote, id: \.refnr) { job in
+                        NavigationLink(destination: JobDetailView(encodedHashId: encodeToBase64(inputString: job.refnr!) ?? "")) {
+                            JobListItemView(job: job)
+                        }
+                    }
                 }
             }
-            .navigationTitle("Stellenanzeigen")
-            .onAppear {
-                jobsViewModel.fetchData()
-            }
         }
+        .onAppear {
+            // Rufe fetchData auf, wenn die HomeView geladen wird
+            jobsViewModel.fetchData()
+        }
+        .onChange(of: searchText) { newValue in
+            // Aktualisiere die Suchergebnisse, wenn sich der Suchtext ändert
+            jobsViewModel.query.name = newValue
+            jobsViewModel.searchJobs()
+        }
+        
     }
-    
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
