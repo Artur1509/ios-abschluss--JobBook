@@ -32,7 +32,7 @@ struct HomeView: View {
                         Spacer()
                         
                     }
-                    .frame(height: 160)
+                    .frame(height: 130)
                     .padding(.horizontal)
                     .background(Color(.white))
                     

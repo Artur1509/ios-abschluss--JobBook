@@ -29,6 +29,33 @@ struct JobDetailView: View {
                         Text(details.titel ?? "")
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
+                        VStack {
+                            
+                            HStack {
+                                Image(systemName: "mappin.circle")
+                                    .foregroundColor(Color("Primary"))
+                                    .frame(alignment: .leading)
+                                    .padding(.horizontal, 8)
+                                    .padding(.trailing, -8)
+                                
+                                Text("\(details.arbeitgeberAdresse?.plz ?? ""), \(details.arbeitgeberAdresse?.ort ?? "Keine Angabe")")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                
+                            }
+                            .padding(.top, 8)
+                            HStack {
+                                Image(systemName: "play.circle")
+                                    .foregroundColor(Color("Primary"))
+                                    .frame(alignment: .leading)
+                                    .padding(.horizontal, 8)
+                                    .padding(.trailing, -8)
+                                
+                                Text(details.eintrittsdatum?.formatDate2() ?? "")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            
+                        }
+                        
                         Spacer()
                         
                         Button(action: {print("Test")}) {
@@ -68,8 +95,9 @@ struct JobDetailView: View {
             ScrollView {
                 VStack {
                     Text("Stellenbeschreibung")
-                        .font(.largeTitle)
+                        .font(.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.bottom, -10)
                     
                     if let details = jobDetails { // Nur anzeigen, wenn die Jobdetails verfügbar sind
                         Text(details.stellenbeschreibung ?? "")
