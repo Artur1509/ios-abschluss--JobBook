@@ -10,12 +10,24 @@ import SwiftUI
 struct JobListItemView: View {
     
     let job: Job
+    @State private var isFavorited = false
     
     var body: some View {
         VStack {
-            FavoriteButton()
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.top, 4)
+            Button(action: {
+                isFavorited.toggle() // Favoritenstatus beim Klicken umschalten
+                if isFavorited {
+                    //addToFavorites() // Wenn favorisiert, zur Favoritenliste hinzufügen
+                } else {
+                    removeFromFavorites() // Wenn nicht favorisiert, aus Favoritenliste entfernen
+                }
+            }) {
+                Image(systemName: isFavorited ? "heart.fill" : "heart")
+                    .foregroundColor(isFavorited ? Color("Primary") : Color("Secondary"))
+                    .font(.title2)
+            }
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.top, 4)
             
             Text(job.beruf ?? "")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -75,8 +87,35 @@ struct JobListItemView: View {
             }
             
         }
+        .onAppear {
+            updateFavoriteStatus() // Beim Laden des Views den Favoritenstatus aktualisieren
+        }
+    }
+    
+    // Funktion zum Hinzufügen zum Favoriten
+    //private func addToFavorites() {
+    //    guard let jobRefnr = job.refnr else { return }
+    //    FirebaseViewModel.shared.addFavorite(jobRefnr: jobRefnr)
+    //}
+    
+    // Funktion zum Entfernen aus den Favoriten
+    private func removeFromFavorites() {
+        guard let jobRefnr = job.refnr else { return }
+        FirebaseViewModel.shared.removeFavorite(jobRefnr: jobRefnr)
+    }
+    
+    // Funktion zum Aktualisieren des Favoritenstatus
+    private func updateFavoriteStatus() {
+        guard let jobRefnr = job.refnr else { return }
+        FirebaseViewModel.shared.isFavorite(jobRefnr: jobRefnr) { isFavorite in
+            self.isFavorited = isFavorite
+        }
     }
 }
+
+// Vorschau entfernt für Kürze
+
+
 
 func encodeToBase64(inputString: String) -> String? {
     if let inputData = inputString.data(using: .utf8) {

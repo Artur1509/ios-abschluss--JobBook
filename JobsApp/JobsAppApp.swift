@@ -33,7 +33,8 @@ struct JobsAppApp: App {
                             Label("Favoriten", systemImage: "heart")
                         }
                     
-                    Text("Tab 3")
+                    ProfileView()
+                        .environmentObject(firebaseViewModel)
                         .tabItem {
                             Label("Profil", systemImage: "person")
                         }
