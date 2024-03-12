@@ -12,6 +12,9 @@ import FirebaseFirestore
 
 class FirebaseViewModel: ObservableObject {
     
+    @Published var jobRefNumbers = [String]()
+    @Published var favorites = [JobDetails]()
+    
     private var auth = Auth.auth()
     @Published var user: User?
     private var db = Firestore.firestore()
@@ -144,6 +147,30 @@ class FirebaseViewModel: ObservableObject {
             }
             
             completion(true)
+        }
+    }
+    
+    func fetchFavorites() {
+        guard let userEmail = user?.email else {
+            print("User not logged in.")
+            return
+        }
+        
+        db.collection("users").document(userEmail).collection("favorites").getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching jobs: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                print("No documents found")
+                return
+            }
+            
+            self.jobRefNumbers = documents.compactMap { snapshot in
+                let data = snapshot.data()
+                return data["refnr"] as? String
+            }
         }
     }
 

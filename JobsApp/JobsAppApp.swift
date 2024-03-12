@@ -27,8 +27,8 @@ struct JobsAppApp: App {
                             Label("Suche", systemImage: "magnifyingglass")
                         }
                     
-                    // Füge hier weitere Views für die anderen Tabs hinzu
-                    Text("Tab 2")
+                    FavoritesView()
+                        .environmentObject(firebaseViewModel)
                         .tabItem {
                             Label("Favoriten", systemImage: "heart")
                         }
