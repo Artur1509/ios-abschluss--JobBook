@@ -8,11 +8,30 @@
 import SwiftUI
 
 struct FavoriteListItem: View {
+    
+    var favorite: Favorite
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            
+            Text(favorite.beruf ?? "")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title2)
+                .fontWeight(.bold)
+                .padding(4)
+                .padding(.horizontal, 4)
+            
+            Text(favorite.titel ?? "")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal, 4)
+                .padding(4)
+            
+        }
+        
     }
 }
 
 #Preview {
-    FavoriteListItem()
+    FavoriteListItem(favorite: .init(beruf: "Schreiner", titel: "Schreinereifachkraft (m/w/d)"))
 }
