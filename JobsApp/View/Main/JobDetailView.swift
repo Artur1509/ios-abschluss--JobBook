@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MessageUI
 
 struct JobDetailView: View {
     
@@ -13,6 +14,7 @@ struct JobDetailView: View {
     @State private var jobDetails: JobDetails?
     let encodedHashId: String
     @State private var isFavorited = false
+    @State private var isShowingMailView = false
     
     var body: some View {
         VStack {
@@ -44,7 +46,7 @@ struct JobDetailView: View {
                                     .padding(.horizontal, 8)
                                     .padding(.trailing, -8)
                                 
-                                Text("\(details.arbeitgeberAdresse?.plz ?? ""), \(details.arbeitgeberAdresse?.ort ?? "Keine Angabe")")
+                                Text("\(details.arbeitsorte?[0].plz ?? ""), \(details.arbeitsorte?[0].ort ?? "")")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .padding(.top, 8)
@@ -62,7 +64,7 @@ struct JobDetailView: View {
                         
                         Spacer()
                         
-                        Button(action: {print("Test")}) {
+                        Button(action: {isShowingMailView = true}) {
                             Text("Bewerben")
                             Image(systemName: "square.and.pencil")
                                 .foregroundColor(Color("Primary"))
@@ -70,6 +72,7 @@ struct JobDetailView: View {
                         .foregroundStyle(Color("Primary"))
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .font(.headline)
+                        
                         
                     } else {
                         ProgressView()

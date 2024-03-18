@@ -157,6 +157,8 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
+    //Favoriten Laden
+    
     func fetchFavorites() {
         guard let userEmail = user?.email else {
             print("User not logged in.")
@@ -175,6 +177,7 @@ class FirebaseViewModel: ObservableObject {
             }
 
             var fetchedFavorites = [Favorite]()
+            
             for document in documents {
                 if let favoriteData = document.data() as? [String: Any] {
                     do {
@@ -189,6 +192,33 @@ class FirebaseViewModel: ObservableObject {
             }
 
             self.favorites = fetchedFavorites
+        }
+    }
+    
+    // Profilangaben speichern
+    
+    func saveProfile(anrede: String, vorname: String, name: String) {
+        guard let userEmail = user?.email else {
+            print("User not logged in.")
+            return
+        }
+        
+        let data: [String: Any] = [
+            
+            "anrede": anrede,
+            "vorname": vorname,
+            "name": name
+            
+        ]
+        
+        let docRef = db.collection("users").document(userEmail).collection("profil").document("angaben")
+        
+        docRef.setData(data) { error in
+            if let error = error {
+                print("Error uploading data: \(error.localizedDescription)")
+            } else {
+                print("Data uploaded successfully!")
+            }
         }
     }
 
