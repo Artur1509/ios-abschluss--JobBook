@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
     
     @StateObject private var jobsViewModel = JobsViewModel()
     @State private var searchText: String = ""
+    @State private var locationText: String = ""
     
     var body: some View {
+        
         NavigationView {
             ZStack {
                 // Hintergrundfarbe festlegen
@@ -24,15 +27,20 @@ struct HomeView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        SearchBar(text: $searchText, placeholder: "Beruf suchen", onCommit: {
-                            jobsViewModel.query.name = searchText
-                            jobsViewModel.searchJobs()
-                        })
+                        
+                        SearchBar(text: $searchText, placeholder: "Was?", onCommit: {
+                            searchJobs()
+                        }, searchImageName: "magnifyingglass")
+                        
+                        SearchBar(text: $locationText, placeholder: "Wo?", onCommit: {
+                            searchJobs()
+                        }, searchImageName: "mappin.circle")
+                        .padding(.top, 8)
+                        
                         
                         Spacer()
-                        
                     }
-                    .frame(height: 130)
+                    .frame(height: 180)
                     .padding(.horizontal)
                     .background(Color(.white))
                     
@@ -46,16 +54,29 @@ struct HomeView: View {
         }
         .onAppear {
             // Rufe fetchData auf, wenn die HomeView geladen wird
-            jobsViewModel.fetchData()
+            fetchData()
         }
         .onChange(of: searchText) { newValue in
-            // Aktualisiere die Suchergebnisse, wenn sich der Suchtext ändert
-            jobsViewModel.query.name = newValue
-            jobsViewModel.searchJobs()
+            searchJobs()
+        }
+        .onChange(of: locationText) { newValue in
+            searchJobs()
         }
         
     }
+    
+    private func fetchData() {
+        jobsViewModel.fetchData()
+    }
+    
+    private func searchJobs() {
+        jobsViewModel.query.name = searchText
+        jobsViewModel.query.location = locationText
+        jobsViewModel.searchJobs()
+    }
 }
+
+
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

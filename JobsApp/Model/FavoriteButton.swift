@@ -16,7 +16,7 @@ struct FavoriteButton: View {
         }) {
             Image(systemName: isFavorited ? "heart.fill" : "heart") // Verwende das gefüllte Herzsymbol, wenn favorisiert, sonst das leere Herzsymbol
                 .foregroundColor(isFavorited ? Color("Primary") : Color("Secondary")) // Ändere die Farbe basierend auf dem Zustand
-                .font(.title2)// Passe die Schriftgröße an
+                .font(.title2)
         }
     }
 }

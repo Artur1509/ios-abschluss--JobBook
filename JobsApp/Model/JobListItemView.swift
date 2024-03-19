@@ -56,7 +56,7 @@ struct JobListItemView: View {
                     .padding(.horizontal, 8)
                     .padding(.trailing, -8)
                 
-                Text("\(job.arbeitsort.plz ?? ""), \(job.arbeitsort.ort ?? "Keine Angabe")")
+                Text("\(job.arbeitsort.plz ?? "") \(job.arbeitsort.ort ?? "Keine Angabe")")
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
             }
@@ -112,9 +112,6 @@ struct JobListItemView: View {
         }
     }
 }
-
-// Vorschau entfernt für Kürze
-
 
 
 func encodeToBase64(inputString: String) -> String? {

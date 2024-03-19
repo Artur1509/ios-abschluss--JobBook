@@ -7,6 +7,7 @@
 import Foundation
 
 class JobsApiRepository {
+    
     private static var apiKey = "c003a37f-024f-462a-b36d-b001be4cd24a"
     
     static func fetchJobs(what: String? = nil, where: String? = nil, berufsfeld: String? = nil, page: Int? = nil, arbeitgeber: String? = nil, zeitarbeit: Bool? = nil, size: Int? = nil, veroeffentlichtseit: Int? = nil, pav: Bool? = nil, angebotsart: Int? = nil, befristung: String? = nil, behinderung: Bool? = nil, corona: Bool? = nil, umkreis: Int? = nil, arbeitszeit: String? = nil) async throws -> [Job] {

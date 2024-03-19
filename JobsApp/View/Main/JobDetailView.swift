@@ -17,6 +17,7 @@ struct JobDetailView: View {
     @State private var isShowingMailView = false
     
     var body: some View {
+        
         VStack {
             ZStack {
                 VStack {
@@ -46,7 +47,7 @@ struct JobDetailView: View {
                                     .padding(.horizontal, 8)
                                     .padding(.trailing, -8)
                                 
-                                Text("\(details.arbeitsorte?[0].plz ?? ""), \(details.arbeitsorte?[0].ort ?? "")")
+                                Text("\(details.arbeitsorte?[0].plz ?? "") \(details.arbeitsorte?[0].ort ?? "")")
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .padding(.top, 8)

@@ -9,4 +9,5 @@ import Foundation
 
 struct JobSearchQuery {
     var name: String?
+    var location: String?
 }

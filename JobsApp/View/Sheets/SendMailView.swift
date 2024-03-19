@@ -7,7 +7,11 @@
 
 import SwiftUI
 
+// Das SendMailView dient nur zu Demonstrationszwecken, da es
+// nicht möglich ist mit dem Simulator E-mails zu versenden.
+
 struct SendMailView: View {
+    
     @State var mailSubject: String = ""
     @State var mailBody: String = ""
     @State var mailTo: String = ""
@@ -25,8 +29,6 @@ struct SendMailView: View {
                     
             }
 
-                
-            
             Section {
                 Button {
                     MailHelper.shared.sendEmail(

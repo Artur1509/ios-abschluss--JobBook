@@ -11,16 +11,17 @@ struct SearchBar: View {
     @Binding var text: String
     var placeholder: String
     var onCommit: () -> Void
-
+    var searchImageName: String 
+    
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass") // Lupe-Symbol im Textfeld
+            Image(systemName: searchImageName)
                 .foregroundColor(Color("Primary"))
-                .padding(.leading, 8) // Abstand zum Textfeld
+                .padding(.leading, 8)
             
             TextField(placeholder, text: $text, onCommit: onCommit)
                 .padding(7)
-                .padding(.horizontal, 10) // Horizontaler Abstand anpassen
+                .padding(.horizontal, 10)
                 .background(Color(.systemGray6))
                 .cornerRadius(8)
             
@@ -32,11 +33,12 @@ struct SearchBar: View {
                     .foregroundColor(Color("Primary"))
                     .padding(.trailing, 10)
             }
-            .opacity(text.isEmpty ? 0 : 1) // Button nur anzeigen, wenn Text vorhanden ist
+            .opacity(text.isEmpty ? 0 : 1)
         }
     }
 }
 
+
 #Preview {
-    SearchBar(text: .constant(""), placeholder: "Search", onCommit: {})
+    SearchBar(text: .constant(""), placeholder: "Search", onCommit: {}, searchImageName: "magnifyingglass")
 }

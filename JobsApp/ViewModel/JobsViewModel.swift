@@ -13,15 +13,17 @@ class JobsViewModel: ObservableObject {
     @Published var favorites = [JobDetails]()
     @Published var stellenangebote = [Job]()
     @Published var query = JobSearchQuery()
-
+    
+    // Daten aus API Laden
+    
     func fetchData() {
         Task {
             do {
                 let fetchedJobs: [Job]
                 if let queryName = query.name {
-                    fetchedJobs = try await JobsApiRepository.fetchJobs(what: queryName)
+                    fetchedJobs = try await JobsApiRepository.fetchJobs(what: queryName, where: query.location) // Hinzufügen des Orts
                 } else {
-                    fetchedJobs = try await JobsApiRepository.fetchJobs()
+                    fetchedJobs = try await JobsApiRepository.fetchJobs(where: query.location) // Hinzufügen des Orts
                 }
                 DispatchQueue.main.async {
                     self.stellenangebote = fetchedJobs
@@ -32,6 +34,8 @@ class JobsViewModel: ObservableObject {
         }
     }
     
+    // Nach Jobs suchen
+    
     func searchJobs() {
         Task {
             do {
@@ -39,12 +43,15 @@ class JobsViewModel: ObservableObject {
                     print("No query name provided.")
                     return
                 }
-                self.stellenangebote = try await JobsApiRepository.fetchJobs(what: queryName)
+                self.stellenangebote = try await JobsApiRepository.fetchJobs(what: queryName, where: query.location)
+                
             } catch {
                 print("Suchanfrage fehlgeschlagen: \(error)")
             }
         }
-    } 
+    }
+    
+    // Jobdetails des ausgewählten Jobs laden
     
     func fetchJobDetails(encodedHashId: String, completion: @escaping (Result<JobDetails, Error>) -> Void) {
         JobsApiRepository.fetchJobDetails(encodedHashId: encodedHashId) { result in
@@ -57,6 +64,7 @@ class JobsViewModel: ObservableObject {
         }
     }
     
+    // Job.refnr in base64 encoden um details laden zu können
     func encodeToBase64(inputString: String) -> String? {
         if let inputData = inputString.data(using: .utf8) {
             let base64String = inputData.base64EncodedString()
@@ -66,6 +74,4 @@ class JobsViewModel: ObservableObject {
             return nil
         }
     }
-    
-
 }
