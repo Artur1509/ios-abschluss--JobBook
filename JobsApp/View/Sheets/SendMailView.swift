@@ -17,8 +17,15 @@ struct SendMailView: View {
         Form {
             TextField("Betreff:", text: $mailSubject)
             TextField("An:", text: $mailTo)
-            TextField("", text: $mailBody)
-                .frame(minHeight: 400)
+            
+            VStack {
+                TextField("", text: $mailBody)
+                    .frame(height: 400)
+                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                    
+            }
+
+                
             
             Section {
                 Button {
@@ -28,8 +35,9 @@ struct SendMailView: View {
                         to: mailTo
                     )
                 }label: {
-                    Text("Email senden")
+                    Text("Senden")
                 }
+                .foregroundStyle(Color("Primary"))
             }
         }
         

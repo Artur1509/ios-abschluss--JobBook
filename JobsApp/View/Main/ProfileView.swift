@@ -18,33 +18,39 @@ struct ProfileView: View {
     
     var body: some View {
         
-        Form {
-            Section(header: Text("Persönliche Angaben")){
+        NavigationView {
+            Form {
+                Section(header: Text("Persönliche Angaben")){
+                    
+                    Picker("Anrede:", selection: $anrede) {
+                        ForEach(anredeAuswahl, id : \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    
+                    TextField("Vorname:", text: $vorname)
+                    TextField("Name:", text: $name)
+                    
+                    
+                }
                 
-                Picker("Anrede:", selection: $anrede) {
-                    ForEach(anredeAuswahl, id : \.self) {
-                        Text($0)
+                Section(header: Text("Profilaktionen")) {
+                    
+                    Button(action: {firebaseViewModel.saveProfile(anrede: anrede, vorname: vorname, name: name)}) {
+                        Text("Angaben Speichern")
+                    }
+                    
+                    Button(action: {firebaseViewModel.logout()}) {
+                        Text("Ausloggen")
                     }
                 }
-                .pickerStyle(.menu)
-                
-                TextField("Vorname:", text: $vorname)
-                TextField("Name:", text: $name)
-                
-                
             }
-            
-            Section(header: Text("Profilaktionen")) {
-                
-                Button(action: {firebaseViewModel.saveProfile(anrede: anrede, vorname: vorname, name: name)}) {
-                    Text("Angaben Speichern")
-                }
-                
-                Button(action: {firebaseViewModel.logout()}) {
-                    Text("Ausloggen")
-                }
-            }
+            .navigationTitle("Profil")
         }
+        
+        
+        
         
     }
     

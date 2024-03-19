@@ -17,28 +17,34 @@ class JobsViewModel: ObservableObject {
     func fetchData() {
         Task {
             do {
+                let fetchedJobs: [Job]
                 if let queryName = query.name {
-                    self.stellenangebote = try await JobsApiRepository.fetchJobs(withQuery: queryName)
+                    fetchedJobs = try await JobsApiRepository.fetchJobs(what: queryName)
                 } else {
-                    self.stellenangebote = try await JobsApiRepository.fetchJobs()
+                    fetchedJobs = try await JobsApiRepository.fetchJobs()
+                }
+                DispatchQueue.main.async {
+                    self.stellenangebote = fetchedJobs
                 }
             } catch {
                 print("Request failed with error: \(error)")
             }
         }
     }
-
+    
     func searchJobs() {
         Task {
             do {
-                if let queryName = query.name {
-                    self.stellenangebote = try await JobsApiRepository.fetchJobs(withQuery: queryName)
+                guard let queryName = query.name else {
+                    print("No query name provided.")
+                    return
                 }
+                self.stellenangebote = try await JobsApiRepository.fetchJobs(what: queryName)
             } catch {
                 print("Suchanfrage fehlgeschlagen: \(error)")
             }
         }
-    }
+    } 
     
     func fetchJobDetails(encodedHashId: String, completion: @escaping (Result<JobDetails, Error>) -> Void) {
         JobsApiRepository.fetchJobDetails(encodedHashId: encodedHashId) { result in

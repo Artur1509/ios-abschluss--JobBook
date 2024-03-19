@@ -72,7 +72,9 @@ struct JobDetailView: View {
                         .foregroundStyle(Color("Primary"))
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .font(.headline)
-                        
+                        .sheet(isPresented: $isShowingMailView, content: {
+                            SendMailView()
+                        })
                         
                     } else {
                         ProgressView()

@@ -19,6 +19,7 @@ struct FavoritesView: View {
                     FavoriteListItem(favorite: favorite)
                 }
             }
+            .navigationTitle("Favoriten")
             .onAppear {
                 firebaseViewModel.fetchFavorites()
             }

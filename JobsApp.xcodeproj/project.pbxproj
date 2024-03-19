@@ -58,6 +58,8 @@
 		E5EB520A2B613863001C615B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB52092B613863001C615B /* FirebaseStorage */; };
 		E5EB520C2B613863001C615B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E5EB520B2B613863001C615B /* FirebaseStorageCombine-Community */; };
 		E5EB520F2B614C19001C615B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EB520E2B614C19001C615B /* HomeView.swift */; };
+		E5FB7A872BA8566700B07938 /* MailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FB7A862BA8566700B07938 /* MailHelper.swift */; };
+		E5FB7A892BA857B100B07938 /* SendMailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5FB7A882BA857B100B07938 /* SendMailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,8 @@
 		E5EB51CF2B61341C001C615B /* FirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseViewModel.swift; sourceTree = "<group>"; };
 		E5EB51D42B61372B001C615B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E5EB520E2B614C19001C615B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E5FB7A862BA8566700B07938 /* MailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailHelper.swift; sourceTree = "<group>"; };
+		E5FB7A882BA857B100B07938 /* SendMailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		E50C2F722B6BAAB600A428B9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB7A862BA8566700B07938 /* MailHelper.swift */,
 				E50C2F692B6A57EC00A428B9 /* Job.swift */,
 				E5E625B72B6F6ECA0083701D /* JobSearchQuery.swift */,
 				E5CA3F622B7F90AE003A7C0C /* JobDetails.swift */,
@@ -209,6 +214,7 @@
 		E5B6B2AA2B5E87ED00939699 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E5FB7A8A2BA9A74B00B07938 /* Sheets */,
 				E5EB520D2B614BE6001C615B /* Main */,
 				E5B6B2AE2B5EB61900939699 /* Login */,
 			);
@@ -243,6 +249,14 @@
 				E55543312BA063F700D3E797 /* FavoritesView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		E5FB7A8A2BA9A74B00B07938 /* Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				E5FB7A882BA857B100B07938 /* SendMailView.swift */,
+			);
+			path = Sheets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,11 +370,13 @@
 				E50C2F6F2B6A629400A428B9 /* HTTPError.swift in Sources */,
 				E55543362BA0B5D000D3E797 /* Favorite.swift in Sources */,
 				E50C2F782B6BC33400A428B9 /* JobListItemView.swift in Sources */,
+				E5FB7A892BA857B100B07938 /* SendMailView.swift in Sources */,
 				E5B6B2B02B5EB64800939699 /* SignInView.swift in Sources */,
 				E5CA3F612B7E591B003A7C0C /* JobDetailView.swift in Sources */,
 				E55543322BA063F700D3E797 /* FavoritesView.swift in Sources */,
 				E50C2F6C2B6A5FDD00A428B9 /* JobsApiRepository.swift in Sources */,
 				E592A7502B84EC5A00136663 /* ProfileView.swift in Sources */,
+				E5FB7A872BA8566700B07938 /* MailHelper.swift in Sources */,
 				E5B6B2AD2B5E890800939699 /* LoginView.swift in Sources */,
 				E5EB520F2B614C19001C615B /* HomeView.swift in Sources */,
 				E5B6B29C2B5E86A700939699 /* JobsAppApp.swift in Sources */,
